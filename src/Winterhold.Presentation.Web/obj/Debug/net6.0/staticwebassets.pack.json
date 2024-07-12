@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\1904\\Documents\\Winterhold\\Winterhold\\src\\Winterhold.Presentation.Web\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\1904\\Documents\\Winterhold\\Winterhold\\src\\Winterhold.Presentation.Web\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\1904\\Documents\\Winterhold\\Winterhold\\src\\Winterhold.Presentation.Web\\wwwroot\\js\\jquery-3.6.0.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.6.0.js"
+    },
+    {
+      "Id": "C:\\Users\\1904\\Documents\\Winterhold\\Winterhold\\src\\Winterhold.Presentation.Web\\wwwroot\\js\\jquery-3.6.0.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.6.0.min.js"
+    },
+    {
+      "Id": "C:\\Users\\1904\\Documents\\Winterhold\\Winterhold\\src\\Winterhold.Presentation.Web\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Winterhold.Presentation.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.Winterhold.Presentation.Web.props",
+      "PackagePath": "build\\Winterhold.Presentation.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.Winterhold.Presentation.Web.props",
+      "PackagePath": "buildMultiTargeting\\Winterhold.Presentation.Web.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.Winterhold.Presentation.Web.props",
+      "PackagePath": "buildTransitive\\Winterhold.Presentation.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

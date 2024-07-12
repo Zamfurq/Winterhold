@@ -1,0 +1,79 @@
+﻿@model BookIndexViewModel
+
+@{
+    ViewData["Title"] = Model.Category;
+}
+
+<section class="grid-container category-index">
+    <p>Search by</p>
+    <form method="get" asp-action="Index" class="filter">
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" />
+        <label asp-for="Name">Author</label>
+        <input asp-for="Name" />
+        <input type="checkbox" asp-for="IsAvailable"> <label>Is Available?</label>
+        <button class="blue-button">Search</button>
+    </form>
+
+    <a asp-action="Insert" class="blue-button create-button" asp-route-category="@Model.Category">Add New @Model.Category Book</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Book Title</th>
+                <th>Is Borrowed</th>
+                <th>Release Date</th>
+                <th>Total Page</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            @foreach (var books in Model.Books)
+            {
+                <tr>
+                    <td>
+                        @if (books.Summary != null)
+                        {
+                            <a href="javascript:;" data-code="@books.Code" class="blue-button summary-button">Summary</a>
+                        }
+                        <a asp-action="Update" class="blue-button" asp-route-category="@Model.Category" asp-route-code="@books.Code">Edit</a>
+                        <a asp-action="Delete" class="blue-button" asp-route-category="@Model.Category" asp-route-code="@books.Code">Delete</a>
+                    </td>
+                    <td>@books.Title</td>
+                    <td>@(@books.IsBorrowed == true ? "Yes" : "No")</td>
+                    <td>@books.ReleaseDate?.ToString("dd/MM/yyyy")</td>
+                    <td>@books.TotalPage</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <div class="pagination">
+                        <div>page @Model.PageNumber of @Model.TotalPage</div>
+                        <div>
+                            @for (int p = 1; p <= Model.TotalPage; p++)
+                            {
+                                <a asp-action="Index" asp-route-page="@p" asp-route-name="@Model.Name" asp-route-title="@Model.Title" asp-route-isAvailable="@Model.IsAvailable">@p</a>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+<div class="modal-layer">
+    <div class="popup-dialog summary-dialog">
+        <header>
+            <h1>Book Summary</h1>
+            
+        </header>
+        <div class="summary">
+
+        </div>
+        <a href="javascript:;" class="blue-button close-button">
+            Close
+        </a>
+    </div>
+</div>

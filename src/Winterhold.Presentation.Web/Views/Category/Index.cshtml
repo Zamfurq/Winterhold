@@ -1,0 +1,120 @@
+﻿@model CategoryIndexViewModel
+
+@{
+    ViewData["Title"] = "Book";
+}
+
+<section class="grid-container category-index">
+    <p>Search by</p>
+    <form method="get" asp-action="Index" class="filter">
+        <label asp-for="Name">Name</label>
+        <input type="text" name="name" id="category-name" asp-for="Name" />
+        <button class="blue-button">Search</button>
+    </form>
+
+    <a href="javascript:;" class="blue-button create-button" id="create-button">Add New Category</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Category Name</th>
+                <th>Floor</th>
+                <th>Isle</th>
+                <th>Bay</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            @foreach(var category in Model.Categories)
+            {
+                <tr>
+                    <td>
+                        <a class="blue-button" asp-controller="Book" asp-action="Index" asp-route-category="@category.Name">Books</a> 
+                        <a class="blue-button update-button" href="javascript:;" data-name="@category.Name"> Edit </a> 
+                        <a class="blue-button delete-button" href="javascript:;" data-name="@category.Name"> Delete </a>
+                    </td>
+                    <td>@category.Name</td>
+                    <td>@category.Floor</td>
+                    <td>@category.Isle</td>
+                    <td>@category.Bay</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <div class="pagination" id="pagination">
+                        <div>page @Model.PageNumber of @Model.TotalPage</div>
+                        <div>
+                            @for (int p = 1; p <= Model.TotalPage; p++)
+                            {
+                                <a asp-action="Index" asp-route-page="@p" asp-route-name="@Model.Name">@p</a>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+
+<div class="modal-layer">
+    <div class="popup-dialog form-dialog">
+        <header>
+            <h1>Category Form</h1>
+        </header>
+        <form action="javascript:;">
+            <input type="hidden" class="filled">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Category Name*</td>
+                        <td>
+                            <input type="text" class="categoryName">
+                            <div class="validation-message" data-for="categoryName"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Floor*</td>
+                        <td>
+                            <input type="text" class="floor">
+                            <div class="validation-message" data-for="floor"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Isle*</td>
+                        <td>
+                            <input type="text" class="isle">
+                            <div class="validation-message" data-for="isle"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bay*</td>
+                        <td>
+                            <input class="bay" type="text" />
+                            <div class="validation-message" data-for="bay"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="blue-button">Submit</button>
+            <a href="javascript:;" class="blue-button close-button">
+                Close
+            </a>
+        </form>
+    </div>
+    <div class="popup-dialog delete-dialog">
+        <header>
+            <h1>Delete Category</h1>
+            
+        </header>
+        <form action="javascript:;">
+            <input type="hidden" class="name">
+            <p>Are you sure to delete this category?</p>
+            <button class="blue-button" type="submit">Remove</button>
+            <a href="javascript:;" class="blue-button close-button">
+                Close
+            </a>
+        </form>
+    </div>
+</div>

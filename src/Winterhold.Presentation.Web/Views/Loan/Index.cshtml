@@ -1,0 +1,174 @@
+﻿@model LoanIndexViewModel
+
+
+@{
+    ViewData["Title"] = "Loan";
+}
+
+<section class="grid-container category-index">
+    <p>Search by</p>
+    <form method="get" asp-action="Index" class="filter">
+        <label asp-for="BookTitle">Book Title</label>
+        <input asp-for="BookTitle" />
+        <label asp-for="CustomerName">Number</label>
+        <input asp-for="CustomerName" />
+        <input asp-for="IsDue" type="checkbox" /> <label>Passed Due Date</label>
+        <button class="blue-button">Search</button>
+    </form>
+
+    <a href="javascript:;" class="blue-button create-button" id="create-button">Add New Loan</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Book Title</th>
+                <th>Customer Name</th>
+                <th>Loan Date</th>
+                <th>Due Date</th>
+                <th>Return Date</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            @foreach (var loan in Model.Loans)
+            {
+                <tr>
+                    <td>
+                        <a href="javascript:;" class="blue-button detail-button" data-id="@loan.Id">Detail</a>
+                        <a href="javascript:;" class="blue-button update-button" data-id="@loan.Id" data-form="Loan">Edit</a>
+                        <a href="javascript:;" class="blue-button return-button" data-id="@loan.Id">Return</a>
+                    </td>
+                    <td>@loan.Book.Title</td>
+                    <td>@loan.Customer.FirstName @loan.Customer.LastName</td>
+                    <td> @loan.LoanDate.ToString("dd/MM/yyyy")</td>
+                    <td>@loan.DueDate.ToString("dd/MM/yyyy") </td>
+                    <td> @(@loan.ReturnDate == null ? "-" : @loan.ReturnDate?.ToString("dd/MM/yyyy"))</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <div class="pagination">
+                        <div>page @Model.PageNumber of @Model.TotalPage</div>
+                        <div>
+                            @for (int p = 1; p <= Model.TotalPage; p++)
+                            {
+                                <a asp-action="Index" asp-route-page="@p" asp-route-customerName="@Model.CustomerName" asp-route-bookTitle="@Model.BookTitle" asp-route-isDue="@Model.IsDue">@p</a>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</section>
+<div class="modal-layer">
+    <div class="popup-dialog form-dialog">
+        <header>
+            <h1>Loan Form</h1>
+            
+        </header>
+        <form action="javascript:;" >
+            <input type="hidden" class="id"> 
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Customer*</td>
+                        <td>
+                            <select class="customer"  asp-items="Model.Customers">
+                                <option value="null">Select Customers</option>
+                            </select>
+                            <div class="validation-message" data-for="customer"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Book*</td>
+                        <td>
+                            <select class="book" asp-items="Model.Books">
+                                <option value="null">Select Book</option>
+                            </select>
+                            <div class="validation-message" data-for="book"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Loan Date*</td>
+                        <td>
+                            <input type="date" class="loanDate">
+                            <div class="validation-message" data-for="loanDate"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Note</td>
+                        <td>
+                            <textarea class="note"></textarea>
+                            <div class="validation-message" data-for="note"></div>
+                        </td>
+                    
+                </tbody>
+            </table>
+            <button type="submit" class="blue-button" data-form="Loan">Submit</button>
+            <a href="javascript:;" class="blue-button close-button">
+                Close
+            </a>
+        </form>
+    </div>
+    <div class="popup-dialog detail-dialog">
+        <div class="bookDetail">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Title</td>
+                        <td class="book-title"></td>
+                    </tr>
+                    <tr>
+                        <td>Category</td>
+                        <td class="category-name"></td>
+                    </tr>
+                    <tr>
+                        <td>Author</td>
+                        <td class="author"></td>
+                    </tr>
+                    <tr>
+                        <td>Floor</td>
+                        <td class="floor"></td>
+                    </tr>
+                    <tr>
+                        <td>Isle</td>
+                        <td class="isle"></td>
+                    </tr>
+                    <tr>
+                        <td>Bay</td>
+                        <td class="bay"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="customerDetail">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Membership Number</td>
+                        <td class="member-number"></td>
+                    </tr>
+                    <tr>
+                        <td>Full Name</td>
+                        <td class="member-name"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td class="phone"></td>
+                    </tr>
+                    <tr>
+                        <td>Membership Expire Date</td>
+                        <td class="expire-date"></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <a href="javascript:;" class="close-button">
+            Close
+        </a>
+    </div>
+</div>

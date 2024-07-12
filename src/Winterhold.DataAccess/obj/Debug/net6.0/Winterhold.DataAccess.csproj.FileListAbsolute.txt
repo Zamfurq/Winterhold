@@ -1,0 +1,14 @@
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\bin\Debug\net6.0\Winterhold.DataAccess.deps.json
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\bin\Debug\net6.0\Winterhold.DataAccess.runtimeconfig.json
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\bin\Debug\net6.0\Winterhold.DataAccess.dll
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\bin\Debug\net6.0\Winterhold.DataAccess.pdb
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.csproj.AssemblyReference.cache
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.AssemblyInfoInputs.cache
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.AssemblyInfo.cs
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.dll
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\refint\Winterhold.DataAccess.dll
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.pdb
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\Winterhold.DataAccess.genruntimeconfig.cache
+C:\Users\1904\Documents\Winterhold\Winterhold\src\Winterhold.DataAccess\obj\Debug\net6.0\ref\Winterhold.DataAccess.dll

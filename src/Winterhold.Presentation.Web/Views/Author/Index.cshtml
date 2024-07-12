@@ -1,0 +1,59 @@
+﻿@model AuthorIndexViewModel
+
+@{
+    ViewData["Title"] = "Author";
+}
+
+<section class="grid-container category-index">
+    <p>Search by</p>
+    <form method="get" asp-action="Index" class="filter">
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name"/>
+        <button class="blue-button">Search</button>
+    </form>
+
+    <a asp-action="Insert" class="blue-button create-button">Add New Author</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Full Name</th>
+                <th>Age</th>
+                <th>Status</th>
+                <th>Education</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var author in Model.Author)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="Detail" class="blue-button" asp-route-id="@author.Id">Books</a>
+                        <a asp-action="Update" class="blue-button" asp-route-id="@author.Id">Edit</a>
+                        <a asp-action="Delete" class="blue-button" asp-route-id="@author.Id">Delete</a>
+                    </td>
+                    <td>@author.Title @author.FirstName @author.LastName</td>
+                    <td> @(author.DeceasedDate == null ? DateTime.Now.Year - author.BirthDate.Year : author.DeceasedDate?.Year - author.BirthDate.Year)</td>
+                    <td>@(author.DeceasedDate == null ? "Alive" : "Deceased")</td>
+                    <td>@author.Education</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    <div class="pagination">
+                        <div>page @Model.PageNumber of @Model.TotalPage</div>
+                        <div>
+                            @for(int p = 1;p <= Model.TotalPage;p++)
+                            {
+                                <a asp-action="Index" asp-route-page="@p" asp-route-name="@Model.Name">@p</a>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr> 
+        </tfoot>
+    </table>
+</section>

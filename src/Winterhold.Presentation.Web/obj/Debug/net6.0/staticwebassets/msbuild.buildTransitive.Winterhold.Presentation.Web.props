@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Winterhold.Presentation.Web.props" />
+</Project>

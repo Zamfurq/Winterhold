@@ -1,0 +1,84 @@
+﻿@model AuthorViewModel
+
+@{
+    if(Model == null)
+    {
+        ViewData["Title"] = "Insert Author";
+    } else
+    {
+        ViewData["Title"] = "Update Author";
+    }
+}
+
+<form method="post" class="upsert-form">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <label asp-for="Title">Title*</label>
+                </td>
+                <td>
+                    <input asp-for="Title"/>
+                    <span asp-validation-for="Title"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="FirstName">First Name*</label>
+                </td>
+                <td>
+                    <input asp-for="FirstName" />
+                    <span asp-validation-for="FirstName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="LastName">Last Name</label>
+                </td>
+                <td>
+                    <input asp-for="LastName" />
+                    <span asp-validation-for="LastName"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="BirthDate">Birth Date *</label>
+                </td>
+                <td>
+                    <input type="date" asp-for="BirthDate" />
+                    <span asp-validation-for="BirthDate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="DeceasedDate">Deceased Date</label>
+                </td>
+                <td>
+                    <input asp-for="DeceasedDate" type="date" />
+                    <span asp-validation-for="DeceasedDate"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Education">Education</label>
+                </td>
+                <td>
+                    <input asp-for="Education" />
+                    <span asp-validation-for="Education"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Summary">Summary</label>
+                </td>
+                <td>
+                    <textarea asp-for="Summary"></textarea>
+                    <span asp-validation-for="Summary"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="blue-button">Submit</button>
+    <a class="blue-button" asp-action="Index">Back to Index</a>
+</form>
+
